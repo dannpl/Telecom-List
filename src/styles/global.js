@@ -9,8 +9,14 @@ export default createGlobalStyle`
   }
 
   body {
-        background: #191920;
+        background: #F3F8FB;
         -webkit-font-smoothing: antialiased;
+    }
+
+    #main-layout {
+      margin-top: 70px;
+      margin-left: 70px;
+      transition: all 0.3s;
     }
 
     body, input, button {

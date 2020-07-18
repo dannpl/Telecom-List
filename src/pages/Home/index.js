@@ -1,8 +1,8 @@
-/* eslint-disable react/jsx-curly-newline */
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Pagination from './../../components/Pagination';
+import CardPhone from './../../components/Phones/CardPhone';
 import { Container, Card, CardsList } from './styles';
 
 import Repository from './../../services/repository';
@@ -47,24 +47,7 @@ export default function Home() {
         {phones.map((phone) => (
           <Card key={phone.id}>
             <div className="content">
-              <span>●</span>
-              <p>Phone: {phone.value}</p>
-              <div>
-                <div>
-                  <span>Value per Monthly</span>
-                  <span>
-                    {phone.monthlyPrice}
-                    {phone.currency}
-                  </span>
-                </div>
-                <div>
-                  <span>Setup Price</span>
-                  <span>
-                    {phone.setupPrice}
-                    {phone.currency}
-                  </span>
-                </div>
-              </div>
+              <CardPhone {...phone} />
             </div>
           </Card>
         ))}

@@ -15,7 +15,9 @@ function App() {
       <BrowserRouter>
         <>
           <Header />
-          <Routes />
+          <div id="main-layout">
+            <Routes />
+          </div>
           <GlobalStyle />
         </>
       </BrowserRouter>
