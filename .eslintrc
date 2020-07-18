@@ -18,6 +18,14 @@
     "import/no-useless-path-segments": "off",
     "array-callback-return": "off",
     "no-console": "off",
-    "react/button-has-type": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "react/button-has-type": "off",
+    "react/forbid-prop-types": "off",
+    "react/require-default-props": "off",
+    "no-plusplus": "off",
+    "implicit-arrow-linebreak": "off",
+    "comma-dangle": "off",
+    "object-shorthand": "off",
+    "react/jsx-curly-newline": "off"
   }
 }
