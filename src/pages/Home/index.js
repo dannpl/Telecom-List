@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GridFill, ViewList } from 'react-bootstrap-icons';
 
-import Pagination from './../../cp/Pagination';
-import ModalEdit from './../../cp/Phones/ModalEdit';
-import CardPhone from './../../cp/Phones/CardPhone';
+import Pagination from './../../components/Pagination';
+import ModalEdit from './../../components/Phones/ModalEdit';
+import CardPhone from './../../components/Phones/CardPhone';
 import { Container, Card, CardsList } from './styles';
 
 import Repository from './../../services/repository';
