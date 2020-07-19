@@ -5,7 +5,7 @@
     "browser": true,
     "jest": true
   },
-  "plugins": ["react", "jsx-a11y", "import"],
+  "plugins": ["react", "jsx-a11y", "import", "react-hooks"],
   "rules": {
     "react/jsx-filename-extension": [
       "error",
@@ -30,6 +30,17 @@
     "jsx-a11y/no-noninteractive-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "object-curly-newline": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react-hooks/rules-of-hooks": "off",
+    "operator-linebreak": "off",
+    "consistent-return": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-boolean-value": "off",
+    "no-param-reassign": "off",
+    "no-case-declarations": "off",
+    "no-confusing-arrow": "off",
+    "function-paren-newline": "off",
+    "no-else-return": "off"
   }
 }

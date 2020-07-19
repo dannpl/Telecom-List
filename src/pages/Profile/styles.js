@@ -13,6 +13,7 @@ export const UserInfos = styled.div`
   flex-direction: column;
   height: auto;
   margin-top: 80px;
+  padding: 0px 15px;
 
   .image {
     max-width: 151px;

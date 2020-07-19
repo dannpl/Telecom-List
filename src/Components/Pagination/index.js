@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Pagination } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-import { Container, ButtonPage } from './styles';
-
-export default function Pagination(props) {
+export default function PaginationComponent(props) {
   const [totalPages, setTotalPages] = useState(0);
+  const { pagination } = props;
 
   const init = async () => {
     const { total, limit } = props.pagination;
@@ -12,45 +12,69 @@ export default function Pagination(props) {
     setTotalPages(total / limit);
   };
 
-  function getPages() {
+  const getPages = () => {
     const data = [];
 
     if (!totalPages) return [];
 
-    for (let i = 1; i <= totalPages; i++) {
+    for (
+      let i =
+        totalPages - pagination.page <= 6 ? totalPages - 5 : pagination.page;
+      i <= totalPages;
+      i++
+    ) {
       data.push(i);
     }
 
     return data;
-  }
+  };
+
+  const changePagination = (page) => {
+    props.changePagination({
+      page: page,
+      limit: pagination.limit,
+      total: pagination.total,
+    });
+  };
 
   useEffect(() => {
     init();
   }, []);
 
   return (
-    <Container>
-      {getPages().map((page) => (
-        <ButtonPage
-          onClick={() => {
-            props.changePagination({
-              page: page,
-              limit: props.pagination.limit,
-              total: props.pagination.total,
-            });
-          }}
-          active={page === props.pagination.page}
-          className="page"
-          key={page}
-        >
-          {page}
-        </ButtonPage>
-      ))}
-    </Container>
+    <Pagination>
+      {totalPages > 0 && (
+        <Pagination.Prev
+          onClick={() =>
+            pagination.page > 1 && changePagination(pagination.page - 1)
+          }
+        />
+      )}
+      {getPages().map((page, i) => {
+        if (i > 5) return null;
+
+        return (
+          <Pagination.Item
+            onClick={() => changePagination(page)}
+            key={page}
+            active={page === pagination.page}
+          >
+            {page}
+          </Pagination.Item>
+        );
+      })}
+      <Pagination.Next
+        onClick={() =>
+          pagination.page < totalPages && changePagination(pagination.page + 1)
+        }
+      />
+    </Pagination>
   );
 }
 
-Pagination.propTypes = {
+PaginationComponent.propTypes = {
   pagination: PropTypes.any,
   changePagination: PropTypes.func,
+  total: PropTypes.any,
+  limit: PropTypes.any,
 };

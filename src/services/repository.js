@@ -1,7 +1,12 @@
 import api from './api';
 
 export default class Repository {
-  getUser = async () => api.get('/users');
+  getUserById = async (id) => api.get(`/users/${id}`);
 
-  getPhones = async (page = 1, limit = 10) => api.get(`/phones?_page=${page}&_limit=${limit}`);
+  putUser = async (id, data) => api.put(`/users/${id}`, data);
+
+  getPhones = async (page = 1, limit = 10) =>
+    api.get(`/phones?_page=${page}&_limit=${limit}`);
+
+  editPhoneStatus = async (id, data) => api.patch(`/phones/${id}`, data);
 }

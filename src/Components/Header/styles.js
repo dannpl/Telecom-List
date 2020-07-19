@@ -13,9 +13,31 @@ export const Container = styled.div`
   background-color: #092f57;
   transition: all 0.3s;
 
+  @media (max-width: 768px) {
+    width: calc(100% - (${(props) => (props.expanded ? '35%' : '0px')}));
+  }
+
+  .menu {
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1;
+    margin-top: 4px;
+    width: 24px;
+  }
+
   .user-menu {
     display: flex;
     align-items: center;
+
+    .no-data {
+      &.img {
+        height: 45px;
+        margin: auto;
+        border-radius: 100%;
+        width: 45px;
+      }
+    }
 
     .name {
       color: white;
@@ -28,6 +50,13 @@ export const Container = styled.div`
       &:hover {
         color: #61dafb;
       }
+
+      .no-data {
+        height: 1rem;
+        margin: auto;
+        border-radius: 2px;
+        width: 120px;
+      }
     }
   }
 `;
@@ -37,17 +66,12 @@ export const SideBar = styled.div`
   top: 0;
   left: 0;
   width: ${(props) => (props.expanded ? '251px' : '70px')};
-  height: 100vh;
+  height: 100%;
   background-color: #092f57;
   transition: all 0.3s;
 
-  .menu {
-    position: absolute;
-    left: 20px;
-    cursor: pointer;
-    z-index: 1;
-    margin: 26px auto;
-    width: 24px;
+  @media (max-width: 768px) {
+    width: calc(100% - (${(props) => (props.expanded ? '65%' : '100%')}));
   }
 
   .logo-name {
@@ -61,7 +85,6 @@ export const SideBar = styled.div`
     left: 0;
     margin: 24px auto;
     text-align: center;
-    margin-left: 15px;
 
     &:hover {
       color: #61dafb;

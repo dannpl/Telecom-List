@@ -4,3 +4,10 @@ export function setPhones(phones) {
     phones,
   };
 }
+
+export function changeStatusPhone(phone) {
+  return {
+    type: 'CHANGE_STATUS',
+    phone,
+  };
+}
